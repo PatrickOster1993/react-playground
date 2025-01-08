@@ -35,10 +35,10 @@ export default class Index extends Component {
 
         {/* Bilder aus dem State rendern */}
         {this.state.images.map((image, index) => (
-          <div>
-          <img key={index} src={image.src} alt={image.alt} />
+          <div key={index}>
+          <img  src={image.src} alt={image.alt} />
           <p>{image.desc}</p>
-        </div>
+          </div>
         ))}
 
         {}
