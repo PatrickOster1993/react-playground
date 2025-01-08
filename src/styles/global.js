@@ -13,8 +13,8 @@ const GlobalStyle = createGlobalStyle`
 
   /* Standardstil für Buttons */
   button {
-    color: white;
-    background: green;
+    color: black;
+    background: #D3D3D3;
     border: none;
     border-radius: 8px; /* Rundet die Ecken der Buttons ab */
     margin: 10px; /* Fügt etwas Außenabstand hinzu */
@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
   /* Hover-Effekt für Buttons */
   button:hover {
-    background: darkgreen; /* Ändert die Hintergrundfarbe beim Schweben */
+    background: #C0C0C0; /* Ändert die Hintergrundfarbe beim Schweben */
     transform: scale(1.05); /* Vergrößert den Button leicht */
   }
 

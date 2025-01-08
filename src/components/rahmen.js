@@ -1,4 +1,5 @@
 import React from "react";
+import LikeButton from "../components/likeButton";
 
 const PhotoGrid = ({ photos }) => {
   const gridStyle = {
@@ -26,20 +27,33 @@ const PhotoGrid = ({ photos }) => {
     objectFit: "cover", // Bild skalieren, ohne Verzerrung
   };
 
+  const descContainerStyle = {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+    marginTop: "10px"
+  };
+
   const descStyle = {
     marginTop: "10px",
     textAlign: "center",
     fontSize: "16px",
     color: "#333"
 
-  }
+  };
+
 
   return (
     <div style={gridStyle}>
       {photos.map((photo, index) => (
         <div key={index} style={frameStyle}>
             <img src={photo.src} alt={photo.alt} desc={photo.desc}style={imageStyle} />
-            <p style= {descStyle}>{photo.desc}</p>    
+                <div style={descContainerStyle}>
+                    <LikeButton />
+                    <p style= {descStyle}>{photo.desc}</p> 
+                    <p>(platzhalter DeletButton</p>
+                </div>        
         </div>
       ))}
     </div>
