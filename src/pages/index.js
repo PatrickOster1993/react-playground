@@ -12,9 +12,9 @@ export default class Index extends Component {
     // Speichere die Bilder im State
     this.state = {
       images: [
-        { src: wuschl, alt: "Wuschl" },
-        { src: musiker, alt: "Musiker" },
-        { src: dahoam, alt: "Dahoam" },
+        { src: wuschl, alt: "Wuschl", desc: "Schöner Kater (keine Eule!)" },
+        { src: musiker, alt: "Musiker", desc: "Schöner Musiker (keine Eule!)" },
+        { src: dahoam, alt: "Dahoam", desc: "Schöner Ort (keine Eule!)" },
       ],
     }
   }
@@ -25,7 +25,10 @@ export default class Index extends Component {
         <GlobalStyle />
         {/* Bilder aus dem State rendern */}
         {this.state.images.map((image, index) => (
-          <img src={image.src} alt={image.alt} />
+          <div>
+            <img key={index} src={image.src} alt={image.alt} />
+            <p>{image.desc}</p>
+          </div>
         ))}
       </div>
     )
