@@ -20,18 +20,23 @@ const GlobalStyle = createGlobalStyle({
     margin: "5px",
     width: "300px",
     border: "10px",
+    fontFamily: 'impact, fantasy',
+    color: "white",
     boxShadow: "4px 4px 8px 8px rgba(0, 0, 0, 0.2)", // Adds shadow around the section
     borderRadius: "10px",
   },
 
   "section:hover":{
     boxShadow: "4px 4px 8px 8px rgba(0, 0, 0, 0.52)", // Adds shadow around the section
-    transition: "0.2s ease-in-out"
+    transition: "0.4s ease-in-out",
+    background: "rgba(67, 161, 67, 0.78)",
+    transform: "scale(1.25)",
+    color: "white"
   },
 
   button: {
     color: "white",
-    background: "green",
+    background: "rgba(245, 245, 245, 0.73)",
     border: "none",
     borderRadius: "8px",
     margin: "10px",
@@ -43,7 +48,7 @@ const GlobalStyle = createGlobalStyle({
 
   "button:hover": {
     background: "darkgreen",
-    transform: "scale(1.05)",
+    transform: "scale(1.35)",
   },
 
   h1: {
@@ -66,7 +71,7 @@ const GlobalStyle = createGlobalStyle({
 
   p: {
     fontSize: "1rem",
-    color: "#666",
+    color: "#white",
   },
 
   input: {

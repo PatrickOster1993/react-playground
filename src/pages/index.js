@@ -59,7 +59,7 @@ export default class Index extends Component {
       <div>
         {/* GlobalStyle stellt globales Styling bereit */}
         <GlobalStyle />
-        <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+        <div style={{ display: "flex", justifyContent: "center", width: "100%" , marginTop: "5vh"}}>
         <imageTitleCombo>
           {this.state.images.map((image, index) => (
               <section  key={index}>
