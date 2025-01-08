@@ -17,11 +17,11 @@ export default class Index extends Component {
     // Speichere die Bilder im State
     this.state = {
       images: [
-        { src: happy, alt: "Happy" },
-        { src: knightCat, alt: "KnightCat" },
-        { src: low_fi, alt: "Low-fi" },
-        { src: misshif, alt: "Low-fi" },
-        { src: sailor, alt: "Low-fi" },
+        { src: happy, desc: "Happy" },
+        { src: knightCat, desc: "KnightCat" },
+        { src: low_fi, desc: "Low-fi" },
+        { src: misshif, desc: "Low-fi" },
+        { src: sailor, desc: "Low-fi" },
       ],
     }
   }
@@ -35,7 +35,10 @@ export default class Index extends Component {
 
         {/* Bilder aus dem State rendern */}
         {this.state.images.map((image, index) => (
+          <div>
           <img key={index} src={image.src} alt={image.alt} />
+          <p>{image.desc}</p>
+        </div>
         ))}
 
         {}
