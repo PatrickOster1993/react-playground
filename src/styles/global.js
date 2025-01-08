@@ -1,76 +1,111 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle = createGlobalStyle`
-  /* Entfernt horizontales Scrollen und sorgt für maximale Breite */
-  html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif; /* Definiert Schriftart */
-    line-height: 1.6; /* Verbessert Lesbarkeit von Text */
-  }
+const GlobalStyle = createGlobalStyle({
+  "html, body": {
+    maxWidth: "100%",
+    overflowX: "hidden",
+    height: "100vh",
+    padding: 0,
+    fontFamily: "Arial, Helvetica, sans-serif",
+    lineHeight: "1.6",
+    background: "linear-gradient(to bottom, turquoise, greenyellow)",
+    display: "flex",
+  },
 
-  /* Standardstil für Buttons */
-  button {
-    color: white;
-    background: green;
-    border: none;
-    border-radius: 8px; /* Rundet die Ecken der Buttons ab */
-    margin: 10px; /* Fügt etwas Außenabstand hinzu */
-    padding: 10px; /* Fügt etwas Innenabstand hinzu */
-    font-size: 1rem; /* Passt die Schriftgröße an */
-    cursor: pointer; /* Zeigt einen Zeiger an, wenn der Button schwebt */
-    transition: background 0.3s ease, transform 0.2s ease; /* Fügt weiche Übergänge hinzu */
-  }
+  "section":{
+    display: "flex",
+    padding: "3px",
+    flexDirection: "column",
+    alignItems: "center",
+    margin: "5px",
+    width: "300px",
+    border: "10px",
+    boxShadow: "4px 4px 8px 8px rgba(0, 0, 0, 0.2)", // Adds shadow around the section
+    borderRadius: "10px",
+  },
 
-  /* Hover-Effekt für Buttons */
-  button:hover {
-    background: darkgreen; /* Ändert die Hintergrundfarbe beim Schweben */
-    transform: scale(1.05); /* Vergrößert den Button leicht */
-  }
+  "section:hover":{
+    boxShadow: "4px 4px 8px 8px rgba(0, 0, 0, 0.52)", // Adds shadow around the section
+    transition: "0.2s ease-in-out"
+  },
 
-  /* Titelstile */
-  h1 {
-    font-size: 2.5rem; /* Große, prominente Schriftgröße */
-    color: #333; /* Dunkles Grau für eine gute Lesbarkeit */
-    margin: 1rem; /* Abstand zum nächsten Element */
-  }
+  button: {
+    color: "white",
+    background: "green",
+    border: "none",
+    borderRadius: "8px",
+    margin: "10px",
+    padding: "10px",
+    fontSize: "1rem",
+    cursor: "pointer",
+    transition: "background 0.3s ease, transform 0.2s ease, 0.2s ease-in-out",
+  },
 
-  h2 {
-    font-size: 2rem;
-    color: #444;
-    margin: 0.75rem;
-  }
+  "button:hover": {
+    background: "darkgreen",
+    transform: "scale(1.05)",
+  },
 
-  h3 {
-    font-size: 1.5rem;
-    color: #555;
-    margin: 0.5rem;
-  }
+  h1: {
+    fontSize: "2.5rem",
+    color: "#333",
+    margin: "1rem",
+  },
 
-  /* Standardstil für Absätze */
-  p {
-    font-size: 1rem;
-    color: #666;
-    margin: 1rem; /* Abstand zwischen Absätzen */
-  }
+  h2: {
+    fontSize: "2rem",
+    color: "#444",
+    margin: "0.75rem",
+  },
 
-  /* Standardstil für Eingabefelder */
-  input {
-    border: 1px solid #ccc;
-    border-radius: 4px; /* Leicht abgerundete Ecken */
-    padding: 8px 12px;
-    font-size: 1rem;
-    margin: 1rem;
-    width: 100%; /* Eingabefelder passen sich der Breite ihres Containers an */
-  }
+  h3: {
+    fontSize: "1.5rem",
+    color: "#555",
+    margin: "0.5rem",
+  },
 
-  /* Fokusstil für Eingabefelder */
-  input:focus {
-    border-color: green; /* Grüner Rand beim Fokus */
-    outline: none; /* Entfernt die Standardumrandung */
-    box-shadow: 0 0 5px rgba(0, 128, 0, 0.5); /* Fügt einen leichten Schatten hinzu */
+  p: {
+    fontSize: "1rem",
+    color: "#666",
+  },
+
+  input: {
+    border: "1px solid #ccc",
+    borderRadius: "4px",
+    padding: "8px 12px",
+    fontSize: "1rem",
+    margin: "1rem",
+    width: "100%",
+  },
+
+  "input:focus": {
+    borderColor: "green",
+    outline: "none",
+    boxShadow: "0 0 5px rgba(0, 128, 0, 0.5)",
+  },
+
+  img:{
+    
+    borderRadius: "10px",
+    overflow: "hidden",
+    border: "3px solid rgba(35, 122, 35, 0.3)"
+  },
+
+  "imageContainer":{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+
+  },
+
+  "imageTitleCombo":{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    maxWidth: "50%",
+    flexWrap: "wrap",
   }
-`
-export default GlobalStyle
+});
+
+export default GlobalStyle;

@@ -11,7 +11,8 @@ class Error extends Component {
     return (
       <div>
         <GlobalStyle />
-        <p>Error 404 ...</p>
+        {this.state.images.map((image, index) => (
+          <img height="300px" key={index} src={image.src}/>))}
       </div>
     )
   }
