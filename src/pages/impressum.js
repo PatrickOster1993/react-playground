@@ -20,4 +20,3 @@ export default class Impressum extends Component {
 
 // Der `export default` sorgt dafür, dass die Komponente exportiert wird,
 // damit sie in anderen Dateien importiert und verwendet werden kann.
-// Durch den Default-Export kann sie mit einem beliebigen Namen importiert werden.
