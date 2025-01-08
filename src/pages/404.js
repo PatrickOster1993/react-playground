@@ -1,49 +1,22 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import React, { Component } from "react"
+import GlobalStyle from "../styles/global"
 
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
+// Die Error-Klasse ist eine React-Komponente, die von der Basisklasse Component erbt.
+// Sie wird verwendet, um eine einfache Fehleranzeige zu rendern.
+class Error extends Component {
+  // Die render-Methode ist eine der wichtigsten Methoden in einer React-Klasse.
+  // Sie beschreibt, was die Komponente im Browser anzeigen soll.
+  render() {
+    // Rückgabe von JSX: Ein einfacher `div`, der eine Fehlermeldung anzeigt.
+    return (
+      <div>
+        <GlobalStyle />
+        <p>Error 404 ...</p>
+      </div>
+    )
+  }
 }
 
-const NotFoundPage = () => {
-  return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
-
-export default NotFoundPage
-
-export const Head = () => <title>Not found</title>
+// Die Komponente wird exportiert, damit sie in anderen Dateien verwendet werden kann.
+// Durch den `default`-Export kann sie mit einem beliebigen Namen importiert werden.
+export default Error
