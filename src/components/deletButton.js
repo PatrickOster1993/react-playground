@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import GlobalStyle
+ from '../styles/global';
 class DeletButton extends Component {
     handleClick = () => {
         const parentElement = this.buttonRef.closest(".frame");
@@ -12,6 +13,7 @@ class DeletButton extends Component {
     render() {
         return (
             <div>
+                <GlobalStyle />
                 <button ref={(ref) => (this.buttonRef = ref)} onClick={this.handleClick}>🗑️</button>
             </div>
         );

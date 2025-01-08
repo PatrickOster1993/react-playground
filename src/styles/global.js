@@ -18,10 +18,12 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     border-radius: 8px; /* Rundet die Ecken der Buttons ab */
     margin: 10px; /* Fügt etwas Außenabstand hinzu */
-    padding: 10px; /* Fügt etwas Innenabstand hinzu */
-    font-size: 1rem; /* Passt die Schriftgröße an */
+    padding: 5px; /* Fügt etwas Innenabstand hinzu */
+    font-size: 25px; /* Passt die Schriftgröße an */
     cursor: pointer; /* Zeigt einen Zeiger an, wenn der Button schwebt */
     transition: background 0.3s ease, transform 0.2s ease; /* Fügt weiche Übergänge hinzu */
+    width: 50px;
+    hight: 50px;
   }
 
   /* Hover-Effekt für Buttons */
