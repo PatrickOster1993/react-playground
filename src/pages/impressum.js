@@ -1,6 +1,6 @@
 // Importiert React und die Basisklasse Component, die für Klassenkomponenten in React benötigt werden.
 import React, { Component } from "react"
-// Importiert globale CSS-Stile, um die gesamte Anwendung zu stylen.
+// Importiert globales Styling, um die gesamte Anwendung zu stylen.
 import GlobalStyle from "../styles/global"
 
 // Erstellt eine neue Klassenkomponente mit dem Namen "Impressum".

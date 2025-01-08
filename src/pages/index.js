@@ -4,7 +4,7 @@ import React, { Component } from "react"
 import { navigate } from "gatsby"
 // Importiert eine benutzerdefinierte Komponente, die in einem separaten Ordner definiert ist.
 import CustomButton from "../components/customButton"
-// Importiert globale CSS-Stile, um die gesamte Anwendung zu stylen.
+// Importiert globales Styling, um die gesamte Anwendung zu stylen.
 import GlobalStyle from "../styles/global"
 
 // Die Index-Klasse ist die Hauptseite der Anwendung. Sie wird beim Start geladen.
@@ -18,7 +18,7 @@ export default class Index extends Component {
   render() {
     return (
       <div>
-        {/* GlobalStyle stellt globale CSS-Stile bereit */}
+        {/* GlobalStyle stellt globales Styling bereit */}
         <GlobalStyle />
 
         {/* CustomButton ist eine benutzerdefinierte Komponente, die separat definiert wurde */}

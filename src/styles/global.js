@@ -7,8 +7,8 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif; /* Definiert eine klare, gut lesbare Schriftart */
-    line-height: 1.6; /* Verbessert die Lesbarkeit von Text */
+    font-family: Arial, Helvetica, sans-serif; /* Definiert Schriftart */
+    line-height: 1.6; /* Verbessert Lesbarkeit von Text */
   }
 
   /* Standardstil für Buttons */
@@ -51,7 +51,7 @@ const GlobalStyle = createGlobalStyle`
   /* Standardstil für Absätze */
   p {
     font-size: 1rem;
-    color: #666; /* Ein leichtes Grau für den Text */
+    color: #666;
     margin-bottom: 1rem; /* Abstand zwischen Absätzen */
   }
 
