@@ -17,7 +17,8 @@ const GlobalStyle = createGlobalStyle`
     background: green;
     border: none;
     border-radius: 8px; /* Rundet die Ecken der Buttons ab */
-    padding: 10px 20px; /* Fügt etwas Innenabstand hinzu */
+    margin: 10px; /* Fügt etwas Außenabstand hinzu */
+    padding: 10px; /* Fügt etwas Innenabstand hinzu */
     font-size: 1rem; /* Passt die Schriftgröße an */
     cursor: pointer; /* Zeigt einen Zeiger an, wenn der Button schwebt */
     transition: background 0.3s ease, transform 0.2s ease; /* Fügt weiche Übergänge hinzu */
@@ -33,26 +34,26 @@ const GlobalStyle = createGlobalStyle`
   h1 {
     font-size: 2.5rem; /* Große, prominente Schriftgröße */
     color: #333; /* Dunkles Grau für eine gute Lesbarkeit */
-    margin-bottom: 1rem; /* Abstand zum nächsten Element */
+    margin: 1rem; /* Abstand zum nächsten Element */
   }
 
   h2 {
     font-size: 2rem;
     color: #444;
-    margin-bottom: 0.75rem;
+    margin: 0.75rem;
   }
 
   h3 {
     font-size: 1.5rem;
     color: #555;
-    margin-bottom: 0.5rem;
+    margin: 0.5rem;
   }
 
   /* Standardstil für Absätze */
   p {
     font-size: 1rem;
     color: #666;
-    margin-bottom: 1rem; /* Abstand zwischen Absätzen */
+    margin: 1rem; /* Abstand zwischen Absätzen */
   }
 
   /* Standardstil für Eingabefelder */
@@ -61,7 +62,7 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 4px; /* Leicht abgerundete Ecken */
     padding: 8px 12px;
     font-size: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
     width: 100%; /* Eingabefelder passen sich der Breite ihres Containers an */
   }
 

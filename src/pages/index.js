@@ -9,11 +9,6 @@ import GlobalStyle from "../styles/global"
 
 // Die Index-Klasse ist die Hauptseite der Anwendung. Sie wird beim Start geladen.
 export default class Index extends Component {
-  // Der Konstruktor initialisiert die Komponente.
-  constructor(props) {
-    super(props) // Ruft den Konstruktor der übergeordneten Klasse (Component) auf.
-  }
-
   // Die render-Methode beschreibt, was die Komponente im Browser anzeigt.
   render() {
     return (

@@ -31,13 +31,13 @@ export default class CustomButton extends Component {
   // Wird aufgerufen, nachdem ein Update abgeschlossen ist (neue Props oder State).
   // Hier kann man auf Änderungen reagieren, z. B. DOM-Manipulationen basierend auf neuen Daten.
   componentDidUpdate(prevProps, prevState) {
-    console.log("6. componentDidUpdate: Nach dem Update.")
+    console.log("7. componentDidUpdate: Nach dem Update.")
   }
 
   // Wird aufgerufen, bevor die Komponente aus dem DOM entfernt wird.
   // Ideal, um Ressourcen wie Timer, Event Listener oder Abonnements zu bereinigen.
   componentWillUnmount() {
-    console.log("7. componentWillUnmount: Bevor die Komponente entfernt wird.")
+    console.log("8. componentWillUnmount: Bevor die Komponente entfernt wird.")
   }
 
   // Methode, die bei einem Button-Klick ausgeführt wird.
@@ -49,7 +49,7 @@ export default class CustomButton extends Component {
 
   // Diese Methode wird jedes Mal aufgerufen, wenn die Komponente neu gerendert wird.
   render() {
-    console.log("3. render: Rendert die Komponente.")
+    console.log("3. (Mount) bzw. 6. (Update) render: Rendert die Komponente.")
     return <button onClick={this.buttonClicked}>My customized button</button>
   }
 }
