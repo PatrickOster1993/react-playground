@@ -1,17 +1,32 @@
-// Importiert React und die Basisklasse Component, die für Klassenkomponenten verwendet wird.
 import React, { Component } from "react"
-
-// Importiert globales Styling, um die gesamte Anwendung zu stylen.
 import GlobalStyle from "../styles/global"
 
-// Die Index-Klasse ist die Hauptseite der Anwendung. Sie wird beim Start geladen.
+// Importiere die Bilder direkt
+import wuschl from "../images/keine_eule.jpg"
+import musiker from "../images/musik_und_so.jpg"
+import dahoam from "../images/dahoam_is_dahoam.png"
+
 export default class Index extends Component {
-  // Die render-Methode beschreibt, was die Komponente im Browser anzeigt.
+  constructor(props) {
+    super(props)
+    // Speichere die Bilder im State
+    this.state = {
+      images: [
+        { src: wuschl, alt: "Wuschl" },
+        { src: musiker, alt: "Musiker" },
+        { src: dahoam, alt: "Dahoam" },
+      ],
+    }
+  }
+
   render() {
     return (
       <div>
-        {/* GlobalStyle stellt globales Styling bereit */}
         <GlobalStyle />
+        {/* Bilder aus dem State rendern */}
+        {this.state.images.map((image, index) => (
+          <img src={image.src} alt={image.alt} />
+        ))}
       </div>
     )
   }
