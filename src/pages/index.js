@@ -7,6 +7,8 @@ import CustomButton from "../components/customButton"
 // Importiert globales Styling, um die gesamte Anwendung zu stylen.
 import GlobalStyle from "../styles/global"
 
+import wuschel from "../images/low-fi.jfif"
+
 // Die Index-Klasse ist die Hauptseite der Anwendung. Sie wird beim Start geladen.
 export default class Index extends Component {
   // Die render-Methode beschreibt, was die Komponente im Browser anzeigt.

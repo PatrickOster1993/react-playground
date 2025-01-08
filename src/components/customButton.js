@@ -11,7 +11,7 @@ export default class CustomButton extends Component {
   }
 
   // Wird vor dem Rendern der Komponente aufgerufen.
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     console.log("2. componentWillMount: Vor dem ersten Rendern (Deprecated).")
   }
 
@@ -22,7 +22,7 @@ export default class CustomButton extends Component {
   }
 
   // Wird aufgerufen, bevor neue Props oder State zum Rendern führen.
-  componentWillUpdate(nextProps, nextState) {
+  UNSAFE_componentWillUpdate(nextProps, nextState) {
     console.log(
       "5. componentWillUpdate: Vor dem Update der Komponente (Deprecated)."
     )
