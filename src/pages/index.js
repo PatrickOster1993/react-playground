@@ -43,7 +43,7 @@ export default class Index extends Component {
     const update = [...this.state.images];
     // den status anhand des index ändern 
     update[index].liked = !update[index].liked;
-    // die alte images überschreiben
+    // die alte images im state überschreiben
     this.setState({images: update});
   };
 
@@ -71,7 +71,7 @@ export default class Index extends Component {
                 </imageContainer>
                 <buttonList>
                   <button onClick={() => this.toggleLikeButton(index)}>
-                    {image.liked ? "❤️" : "💙"}
+                    {image.liked ? "❤️" : "🩶"}
                   </button>
                   <button onClick={() => this.removeImage(index)}>
                   🗑️

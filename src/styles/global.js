@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle({
     padding: 0,
     fontFamily: "Arial, Helvetica, sans-serif",
     lineHeight: "1.6",
-    background: "linear-gradient(to bottom, turquoise, greenyellow)",
+    background: "linear-gradient(to bottom, turquoise, green)",
     display: "flex",
   },
 
@@ -29,7 +29,7 @@ const GlobalStyle = createGlobalStyle({
   "section:hover":{
     boxShadow: "4px 4px 8px 8px rgba(0, 0, 0, 0.52)", // Adds shadow around the section
     transition: "0.4s ease-in-out",
-    background: "rgba(67, 161, 67, 0.78)",
+    background: "rgba(31, 168, 88, 0.92)",
     transform: "scale(1.25)",
     color: "white"
   },
