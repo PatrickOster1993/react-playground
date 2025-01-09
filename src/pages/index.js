@@ -1,6 +1,9 @@
 // Importiert React und die Basisklasse Component, die für Klassenkomponenten verwendet wird.
 import React, { Component } from "react";
 import Searchfunction from "../components/Searchfunction";
+import { ToastContainer, toast } from 'react-toastify';
+import ToastDeleteMessage from "../components/toastDeleteMessage";
+import 'react-toastify/dist/ReactToastify.css';
 
 // Importiert globales Styling, um die gesamte Anwendung zu stylen.
 import GlobalStyle from "../styles/global"// Importiert globales Styling, um die gesamte Anwendung zu stylen.
@@ -59,6 +62,15 @@ export default class Index extends Component {
     this.setState({ images: updatedImages, filteredImages: updatedFilteredImages });
     };
 
+  
+  showDeleteToast = (index) => {
+    toast.warning(<ToastDeleteMessage  toast={toast}  onOkClick={() => this.removeImage(index)} />, {
+      style: {
+        backgroundColor: "rgba(0, 128, 0, 0.78)", // Custom background color
+        color: "#fff",               // Custom text color
+      }});
+  }
+
   render() {
     return (
       <div>
@@ -68,7 +80,7 @@ export default class Index extends Component {
         <div style={{ display: "flex", justifyContent: "center", width: "100%" , marginTop: "5vh"}}>
         <imageTitleCombo>
           {this.state.filteredImages.map((image, index) => (
-              <section  key={index}>
+              <customSection  key={index}>
                   <p>{image.alt}</p>
                 <imageContainer>
                   <img height="200px" src={image.src} alt={image.alt}/>
@@ -77,16 +89,29 @@ export default class Index extends Component {
                   <button onClick={() => this.toggleLikeButton(index)}>
                     {image.liked ? "❤️" : "🩶"}
                   </button>
-                  <button onClick={() => this.removeImage(index)}>
+                  <button onClick={() => this.showDeleteToast(index)}>
                     🗑️
                   </button>       
                 </buttonList>
-              </section>
+              </customSection>
               
           ))}
 
         </imageTitleCombo>
         </div>
+        
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme= "light"
+      />
       </div>
     )
   }
