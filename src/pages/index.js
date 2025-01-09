@@ -47,9 +47,9 @@ export default class Index extends Component {
   }
 
   deleteImage = (index) => {
-    // create a new array with all elements that pass the "filter"-test where _ is a placeholder and i is the index
+    // Neues Array erstellen was gefiltert wird | "filter"-test where _ is a placeholder and i is the index
     const updatedImages = this.state.images.filter((_, i) => i !== index)
-    // just as in the toggle like button function i copy the newly generated list into the old ones place
+    // die alte images im state überschreiben
     this.setState({ images: updatedImages })
   }
   // rendern/ausgeben der WebSite/Html_Code
