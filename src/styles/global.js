@@ -107,7 +107,7 @@ const GlobalStyle = createGlobalStyle({
   "imageTitleCombo":{
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "center",
     maxWidth: "80%",
     flexWrap: "wrap",
   }

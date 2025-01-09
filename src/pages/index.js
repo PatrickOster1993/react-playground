@@ -1,5 +1,6 @@
 // Importiert React und die Basisklasse Component, die für Klassenkomponenten verwendet wird.
 import React, { Component } from "react";
+import Searchfunction from "../components/Searchfunction";
 
 // Importiert globales Styling, um die gesamte Anwendung zu stylen.
 import GlobalStyle from "../styles/global"// Importiert globales Styling, um die gesamte Anwendung zu stylen.
@@ -32,12 +33,11 @@ export default class Index extends Component {
         {src: nerdstuff, alt: "yes i got those", liked: false},
         {src: Pancakes, alt: "i really really like to make those", liked: false},
         {src: whatisit, alt: "did not figure this out yet", liked: false}
-
-      ]
+      ],
     }
+    this.state.filteredImages = [...this.state.images]
   }
 
-  
   toggleLikeButton = (index) => {
     // eine kopie von images machen 
     const update = [...this.state.images];
@@ -45,6 +45,10 @@ export default class Index extends Component {
     update[index].liked = !update[index].liked;
     // die alte images im state überschreiben
     this.setState({images: update});
+  };
+
+  updateFilteredImages = (filteredPictures) => {
+    this.setState({ filteredImages: filteredPictures });
   };
 
   removeImage = (index) => {
@@ -59,9 +63,10 @@ export default class Index extends Component {
       <div>
         {/* GlobalStyle stellt globales Styling bereit */}
         <GlobalStyle />
+        <Searchfunction images={this.state.images} updateFilteredImages={this.updateFilteredImages}/>
         <div style={{ display: "flex", justifyContent: "center", width: "100%" , marginTop: "5vh"}}>
         <imageTitleCombo>
-          {this.state.images.map((image, index) => (
+          {this.state.filteredImages.map((image, index) => (
               <section  key={index}>
                   <p>{image.alt}</p>
                 <imageContainer>
