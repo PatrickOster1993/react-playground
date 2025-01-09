@@ -1,13 +1,19 @@
 import React, { Component } from "react"
+import GlobalStyle from "../styles/global"
 
 export default class ImageCard extends Component {
   render() {
     // variable deklarieren image / onLike / on Delete
     const { image, onLike, onDelete } = this.props
     return (
+        
       <div style={{ marginBottom: '20px', textAlign: 'center' }}>
-        <img src={image.src} alt={image.desc} style={{ width: '300px' }} />
+        <GlobalStyle />
+        
+        <img height="200px" src={image.src} alt={image.desc} style={{ width: '300px' }} />
+        
         <p>{image.desc}</p>
+        
         <button
           onClick={onLike}
           style={{

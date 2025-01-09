@@ -57,14 +57,21 @@ export default class Index extends Component {
     return (
       <div>
         <GlobalStyle />
-        {this.state.images.map((image, index) => (
-          <ImageCard
-            key={index}
-            image={image}
-            onLike={() => this.toggleLike(index)}
-            onDelete={() => this.deleteImage(index)}
-          />
-        ))}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "20px",
+          padding: "20px"
+        }}>
+          {this.state.images.map((image, index) => (
+            <ImageCard
+              key={index}
+              image={image}
+              onLike={() => this.toggleLike(index)}
+              onDelete={() => this.deleteImage(index)}
+            />
+          ))}
+        </div>
       </div>
     )
   }

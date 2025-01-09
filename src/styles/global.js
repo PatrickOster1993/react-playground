@@ -72,5 +72,6 @@ const GlobalStyle = createGlobalStyle`
     outline: none; /* Entfernt die Standardumrandung */
     box-shadow: 0 0 5px rgba(0, 128, 0, 0.5); /* Fügt einen leichten Schatten hinzu */
   }
+
 `
 export default GlobalStyle
