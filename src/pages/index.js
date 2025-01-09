@@ -20,7 +20,7 @@ export default class Index extends Component {
   // Die render-Methode beschreibt, was die Komponente im Browser anzeigt.
   constructor(props){
     super(props)
-    
+
     this.state = {
       images: [
         {src: burfdaybefore, alt: "got this last year", liked: false},
@@ -51,19 +51,20 @@ export default class Index extends Component {
     this.setState({ filteredImages: filteredPictures });
   };
 
+  
   removeImage = (index) => {
-    // create a new array with all elements that pass the "filter"-test where _ is a placeholder and i is the index
-    const imageRemoval = this.state.images.filter((_, i) => i !== index);
+    const updatedImages = this.state.images.filter((_, i) => i !== index);
+    const updatedFilteredImages = this.state.filteredImages.filter((_, i) => i !== index);
     // just as in the toggle like button function i copy the newly generated list into the old ones place
-    this.setState({ images: imageRemoval });
-  };
+    this.setState({ images: updatedImages, filteredImages: updatedFilteredImages });
+    };
 
   render() {
     return (
       <div>
         {/* GlobalStyle stellt globales Styling bereit */}
         <GlobalStyle />
-        <Searchfunction images={this.state.images} updateFilteredImages={this.updateFilteredImages}/>
+        <Searchfunction originalImages = {this.state.images} images={this.state.filteredImages} updateFilteredImages={this.updateFilteredImages}/>
         <div style={{ display: "flex", justifyContent: "center", width: "100%" , marginTop: "5vh"}}>
         <imageTitleCombo>
           {this.state.filteredImages.map((image, index) => (
@@ -77,8 +78,8 @@ export default class Index extends Component {
                     {image.liked ? "❤️" : "🩶"}
                   </button>
                   <button onClick={() => this.removeImage(index)}>
-                  🗑️
-                  </button>
+                    🗑️
+                  </button>       
                 </buttonList>
               </section>
               

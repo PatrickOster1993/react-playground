@@ -22,7 +22,7 @@ class Searchfunction extends Component {
             this.props.updateFilteredImages(filteredPictures);
         }
         else{
-            this.props.updateFilteredImages(this.props.images)
+            this.props.updateFilteredImages(this.props.originalImages)
         }
     }
     
