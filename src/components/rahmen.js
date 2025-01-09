@@ -24,7 +24,7 @@ const PhotoGrid = ({ photos }) => {
 
     const imageStyle = {
         width: "100%", // Bild passt sich an den Rahmen an
-        height: "300px", // Höhe des Bildes
+        height: "500px", // Höhe des Bildes
         borderRadius: "15px", // Abgerundete Ecken für das Bild
         objectFit: "cover", // Bild skalieren, ohne Verzerrung
     };
@@ -50,7 +50,7 @@ const PhotoGrid = ({ photos }) => {
         <div style={gridStyle}>
         {photos.map((photo, index) => (
             <div key={index} style={frameStyle} className="frame">
-                <img src={photo.src} alt={photo.alt} desc={photo.desc}style={imageStyle} />
+                <img src={photo.src} alt={photo.alt} desc={photo.desc} style={imageStyle} />
                     <div style={descContainerStyle}>
                         <LikeButton />
                         <p style= {descStyle}>{photo.desc}</p> 

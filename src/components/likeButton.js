@@ -6,7 +6,7 @@ class LikeButton extends Component {
         super(props);
         this.state = {liked: false};
     }
-
+    
     handleClick = () => {
         this.setState((prevState) => ({
             liked: !prevState.liked

@@ -3,9 +3,12 @@ import GlobalStyle
  from '../styles/global';
 class DeletButton extends Component {
     handleClick = () => {
-        const parentElement = this.buttonRef.closest(".frame");
-        if (parentElement) {
+        const confirmation = window.confirm("Sind sie sicher dass sie das Foto löschen wollen?");
+        if (confirmation) {
+            const parentElement = this.buttonRef.closest(".frame");
+            if (parentElement) {
             parentElement.remove();
+            }
         }
 
     };
