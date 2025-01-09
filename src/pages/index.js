@@ -3,6 +3,7 @@ import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
 import ImageCard from "../components/ImageCard"
+import Searchfunction from "../components/Searchfunction"
 
 import GlobalStyle from "../styles/global"
 
