@@ -4,7 +4,7 @@ import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
 import ImageCard from "../components/ImageCard"
-import SearchFunction from "../components/SearchFunction"
+import SearchFunction from "../components/Searchfunction"
 import GlobalStyle from "../styles/global"
 
 import happy from "../images/happy.jpg"
@@ -55,9 +55,9 @@ export default class Index extends Component {
     updatedImages[globalIndex].liked = !updatedImages[globalIndex].liked
     this.setState({ images: updatedImages })
   }
-
+  
   deleteImage = (index) => {
-    toast(
+    const toastId = toast(
       <div>
         Wollen Sie wirklich löschen?
         <div style={{ marginTop: "10px" }}>
@@ -71,7 +71,7 @@ export default class Index extends Component {
               borderRadius: "5px",
               cursor: "pointer",
             }}
-            onClick={() => this.confirmDelete(index)}
+            onClick={() => this.confirmDelete(index, toastId)}
           >
             Ja
           </button>
@@ -84,7 +84,7 @@ export default class Index extends Component {
               borderRadius: "5px",
               cursor: "pointer",
             }}
-            onClick={toast.dismiss}
+            onClick={() => this.cancelDelete(toastId)}
           >
             Nein
           </button>
@@ -94,11 +94,8 @@ export default class Index extends Component {
     )
   }
 
-  confirmDelete = (index) => {
-    const globalIndex = this.state.images.findIndex(
-      (img) => img.desc === this.state.filteredImages[index].desc
-    )
-    const updatedImages = this.state.images.filter((_, i) => i !== globalIndex)
+  confirmDelete = (index, toastId) => {
+    const updatedImages = this.state.images.filter((_, i) => i !== index)
     const updatedFilteredImages = this.state.filteredImages.filter(
       (_, i) => i !== index
     )
@@ -106,8 +103,12 @@ export default class Index extends Component {
       images: updatedImages,
       filteredImages: updatedFilteredImages,
     })
-    toast.dismiss()
+    toast.dismiss(toastId) // Schließt den Toast, nachdem das Bild gelöscht wurde
     toast.success("Bild wurde erfolgreich gelöscht!")
+  }
+
+  cancelDelete = (toastId) => {
+    toast.dismiss(toastId) // Schließt den Toast, wenn "Nein" geklickt wird
   }
 
   render() {
