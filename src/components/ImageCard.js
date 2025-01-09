@@ -2,6 +2,7 @@ import React, { Component } from "react"
 
 export default class ImageCard extends Component {
   render() {
+    // variable deklarieren image / onLike / on Delete
     const { image, onLike, onDelete } = this.props
     return (
       <div style={{ marginBottom: '20px', textAlign: 'center' }}>

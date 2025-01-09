@@ -34,17 +34,22 @@ export default class Index extends Component {
       ],
     }
   }
-
+  
   //Funktionen
 
   toggleLike = (index) => {
+    // eine kopie von images machen 
     const updatedImages = [...this.state.images]
+    // den status anhand des index ändern 
     updatedImages[index].liked = !updatedImages[index].liked
+    // die alte images im state überschreiben
     this.setState({ images: updatedImages })
   }
 
   deleteImage = (index) => {
+    // create a new array with all elements that pass the "filter"-test where _ is a placeholder and i is the index
     const updatedImages = this.state.images.filter((_, i) => i !== index)
+    // just as in the toggle like button function i copy the newly generated list into the old ones place
     this.setState({ images: updatedImages })
   }
   // rendern/ausgeben der WebSite/Html_Code
