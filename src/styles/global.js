@@ -9,7 +9,6 @@ const GlobalStyle = createGlobalStyle({
     fontFamily: "Arial, Helvetica, sans-serif",
     lineHeight: "1.6",
     background: "linear-gradient(to bottom, turquoise, green)",
-    display: "flex",
   },
 
   "section":{
@@ -24,6 +23,7 @@ const GlobalStyle = createGlobalStyle({
     color: "white",
     boxShadow: "4px 4px 8px 8px rgba(0, 0, 0, 0.2)", // Adds shadow around the section
     borderRadius: "10px",
+    marginBottom: "20px"
   },
 
   "section:hover":{
@@ -107,8 +107,8 @@ const GlobalStyle = createGlobalStyle({
   "imageTitleCombo":{
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
-    maxWidth: "50%",
+    justifyContent: "space-between",
+    maxWidth: "80%",
     flexWrap: "wrap",
   }
 });

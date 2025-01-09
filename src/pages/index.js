@@ -63,9 +63,7 @@ export default class Index extends Component {
         <imageTitleCombo>
           {this.state.images.map((image, index) => (
               <section  key={index}>
-                <div>
                   <p>{image.alt}</p>
-                </div>
                 <imageContainer>
                   <img height="200px" src={image.src} alt={image.alt}/>
                 </imageContainer>
