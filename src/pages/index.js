@@ -1,10 +1,10 @@
+// src/pages/index
 import React, { Component } from "react"
 import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
 import ImageCard from "../components/ImageCard"
-import Searchfunction from "../components/Searchfunction"
-
+import SearchFunction from "../components/SearchFunction"
 import GlobalStyle from "../styles/global"
 
 import happy from "../images/happy.jpg"
@@ -34,17 +34,25 @@ export default class Index extends Component {
         { src: robot, desc: "Robot", liked: false },
         { src: witch, desc: "Witch", liked: false },
       ],
-      searchQuery: "", // Initialisieren des Such-Strings
+      filteredImages: [], // Neu: Zustandsvariable für gefilterte Bilder
     }
   }
 
-  handleSearch = (event) => {
-    this.setState({ searchQuery: event.target.value.toLowerCase() })
+  componentDidMount() {
+    // Initialisieren von filteredImages mit allen Bildern
+    this.setState({ filteredImages: this.state.images })
+  }
+
+  setFilteredImages = (filteredImages) => {
+    this.setState({ filteredImages })
   }
 
   toggleLike = (index) => {
     const updatedImages = [...this.state.images]
-    updatedImages[index].liked = !updatedImages[index].liked
+    const globalIndex = this.state.images.findIndex(
+      (img) => img.desc === this.state.filteredImages[index].desc
+    )
+    updatedImages[globalIndex].liked = !updatedImages[globalIndex].liked
     this.setState({ images: updatedImages })
   }
 
@@ -78,7 +86,7 @@ export default class Index extends Component {
             }}
             onClick={toast.dismiss}
           >
-            Neein
+            Nein
           </button>
         </div>
       </div>,
@@ -87,32 +95,27 @@ export default class Index extends Component {
   }
 
   confirmDelete = (index) => {
-    const updatedImages = this.state.images.filter((_, i) => i !== index)
-    this.setState({ images: updatedImages })
+    const globalIndex = this.state.images.findIndex(
+      (img) => img.desc === this.state.filteredImages[index].desc
+    )
+    const updatedImages = this.state.images.filter((_, i) => i !== globalIndex)
+    const updatedFilteredImages = this.state.filteredImages.filter(
+      (_, i) => i !== index
+    )
+    this.setState({
+      images: updatedImages,
+      filteredImages: updatedFilteredImages,
+    })
     toast.dismiss()
     toast.success("Bild wurde erfolgreich gelöscht!")
   }
 
   render() {
-    const filteredImages = this.state.images.filter(image =>
-      image.desc.toLowerCase().includes(this.state.searchQuery)
-    )
-
     return (
       <div>
-        <input
-          type="text"
-          placeholder="Suchen..."
-          value={this.state.searchQuery}
-          onChange={this.handleSearch}
-          style={{
-            width: "100%",
-            padding: "10px",
-            margin: "20px 0",
-            fontSize: "16px",
-            borderRadius: "5px",
-            border: "1px solid #ccc",
-          }}
+        <SearchFunction
+          images={this.state.images}
+          onFilter={this.setFilteredImages}
         />
         <div>
           <GlobalStyle />
@@ -124,7 +127,7 @@ export default class Index extends Component {
               padding: "20px",
             }}
           >
-            {filteredImages.map((image, index) => (
+            {this.state.filteredImages.map((image, index) => (
               <ImageCard
                 key={index}
                 image={image}

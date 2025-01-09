@@ -1,40 +1,32 @@
-import React, { Component } from 'react';
+import React, { useState } from "react"
 
+const SearchFunction = ({ images, onFilter }) => {
+  const [searchQuery, setSearchQuery] = useState("")
 
-class Searchfunction extends Component {
-    
-  constructor(props){
-    super(props)
-
-    
-    this.state = {
-    inputValue: ""
-    }
+  const handleSearchChange = (query) => {
+    setSearchQuery(query.toLowerCase())
+    const filteredImages = images.filter((image) =>
+      image.desc.toLowerCase().includes(query.toLowerCase())
+    )
+    onFilter(filteredImages)
   }
-    handleSearch = (action) => {
-        const refreshedInputValue = action.target.value;
-        this.setState({inputValue: action.target.value});
 
-        
-        if (refreshedInputValue !== "" ){
-            const filteredPictures = this.props.images.filter((image) =>
-            image.alt.toLowerCase().includes(refreshedInputValue.toLowerCase()));
-            this.props.updateFilteredImages(filteredPictures);
-        }
-        else{
-            this.props.updateFilteredImages(this.props.originalImages)
-        }
-    }
-    
-    render() {
-        return (
-            <input
-            value = {this.state.inputValue}
-            onChange = {this.handleSearch}
-            placeholder = "Enter search words..."
-            />
-        )
-    }
+  return (
+    <input
+      type="text"
+      placeholder="Suchen..."
+      value={searchQuery}
+      onChange={(e) => handleSearchChange(e.target.value)}
+      style={{
+        width: "100%",
+        padding: "10px",
+        margin: "20px 0",
+        fontSize: "16px",
+        borderRadius: "5px",
+        border: "1px solid #ccc",
+      }}
+    />
+  )
 }
 
-export default Searchfunction;
+export default SearchFunction
