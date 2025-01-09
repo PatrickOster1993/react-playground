@@ -47,10 +47,15 @@ export default class Index extends Component {
   }
 
   deleteImage = (index) => {
-    // Neues Array erstellen was gefiltert wird | "filter"-test where _ is a placeholder and i is the index
-    const updatedImages = this.state.images.filter((_, i) => i !== index)
-    // die alte images im state überschreiben
-    this.setState({ images: updatedImages })
+    // MessageBox in React 
+    const deleteimage = window.confirm("Wollen Sie wirklich löschen?")
+    // if abfrage
+    if(deleteimage){
+      // Neues Array erstellen was gefiltert wird | "filter"-test where _ is a placeholder and i is the index
+      const updatedImages = this.state.images.filter((_, i) => i !== index)
+      // die alte images im state überschreiben
+      this.setState({ images: updatedImages })
+    }
   }
   // rendern/ausgeben der WebSite/Html_Code
   render() {
