@@ -1,6 +1,11 @@
 import React, { Component } from "react"
+import { toast, ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 import ImageCard from "../components/ImageCard"
+
 import GlobalStyle from "../styles/global"
+
 import happy from "../images/happy.jpg"
 import knightCat from "../images/KnightCat.jpg"
 import low_fi from "../images/low-fi.jpg"
@@ -43,11 +48,48 @@ export default class Index extends Component {
   }
 
   deleteImage = (index) => {
-    const deleteimage = window.confirm("Wollen Sie wirklich löschen?")
-    if (deleteimage) {
-      const updatedImages = this.state.images.filter((_, i) => i !== index)
-      this.setState({ images: updatedImages })
-    }
+    toast(
+      <div>
+        Wollen Sie wirklich löschen?
+        <div style={{ marginTop: "10px" }}>
+          <button
+            style={{
+              marginRight: "10px",
+              padding: "5px 10px",
+              background: "red",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+            onClick={() => this.confirmDelete(index)}
+          >
+            Ja
+          </button>
+          <button
+            style={{
+              padding: "5px 10px",
+              background: "gray",
+              color: "white",
+              border: "none",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+            onClick={toast.dismiss}
+          >
+            Neein
+          </button>
+        </div>
+      </div>,
+      { autoClose: false }
+    )
+  }
+
+  confirmDelete = (index) => {
+    const updatedImages = this.state.images.filter((_, i) => i !== index)
+    this.setState({ images: updatedImages })
+    toast.dismiss()
+    toast.success("Bild wurde erfolgreich gelöscht!")
   }
 
   render() {
@@ -91,6 +133,7 @@ export default class Index extends Component {
             ))}
           </div>
         </div>
+        <ToastContainer />
       </div>
     )
   }
