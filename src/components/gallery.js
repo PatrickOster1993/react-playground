@@ -10,9 +10,14 @@ class Gallery extends Component {
   }
 
   deletePicture = (indexToRemove) => {
-    const pictures = [...this.state.pictures] // Kopie des Arrays erstellen
-    pictures.splice(indexToRemove, 1) // Bild entfernen
-    this.setState({ pictures }) // State aktualisieren
+    const confirmDelete = window.confirm(
+      "Möchten Sie das Bild wirklich löschen oder sind sie spontan wahnsinnig geworden (und wissen es aber vielleicht nicht)?"
+    )
+    if (confirmDelete) {
+      const pictures = [...this.state.pictures] // Kopie des Arrays erstellen
+      pictures.splice(indexToRemove, 1) // Bild entfernen
+      this.setState({ pictures }) // State aktualisieren
+    }
   }
 
   toggleLike = (index) => {
