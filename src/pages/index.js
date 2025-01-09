@@ -1,10 +1,6 @@
-// Standart Lib importieren
 import React, { Component } from "react"
-// Eigene Component importiert 
 import ImageCard from "../components/ImageCard"
-// Design CSS
 import GlobalStyle from "../styles/global"
-// Images importieren
 import happy from "../images/happy.jpg"
 import knightCat from "../images/KnightCat.jpg"
 import low_fi from "../images/low-fi.jpg"
@@ -26,56 +22,74 @@ export default class Index extends Component {
         { src: low_fi, desc: "Low-fi", liked: false },
         { src: misshif, desc: "Misshif", liked: false },
         { src: sailor, desc: "Sailor", liked: false },
-        { src: evil, desc: "evil", liked: false },
-        { src: lassy, desc: "lassy", liked: false },
-        { src: ninja, desc: "ninja", liked: false },
-        { src: robot, desc: "robot", liked: false },
-        { src: witch, desc: "witch", liked: false },
+        { src: evil, desc: "Evil", liked: false },
+        { src: lassy, desc: "Lassy", liked: false },
+        { src: ninja, desc: "Ninja", liked: false },
+        { src: robot, desc: "Robot", liked: false },
+        { src: witch, desc: "Witch", liked: false },
       ],
+      searchQuery: "", // Initialisieren des Such-Strings
     }
   }
-  
-  //Funktionen
+
+  handleSearch = (event) => {
+    this.setState({ searchQuery: event.target.value.toLowerCase() })
+  }
 
   toggleLike = (index) => {
-    // eine kopie von images machen 
     const updatedImages = [...this.state.images]
-    // den status anhand des index ändern 
     updatedImages[index].liked = !updatedImages[index].liked
-    // die alte images im state überschreiben
     this.setState({ images: updatedImages })
   }
 
   deleteImage = (index) => {
-    // MessageBox in React 
     const deleteimage = window.confirm("Wollen Sie wirklich löschen?")
-    // if abfrage
-    if(deleteimage){
-      // Neues Array erstellen was gefiltert wird | "filter"-test where _ is a placeholder and i is the index
+    if (deleteimage) {
       const updatedImages = this.state.images.filter((_, i) => i !== index)
-      // die alte images im state überschreiben
       this.setState({ images: updatedImages })
     }
   }
-  // rendern/ausgeben der WebSite/Html_Code
+
   render() {
+    const filteredImages = this.state.images.filter(image =>
+      image.desc.toLowerCase().includes(this.state.searchQuery)
+    )
+
     return (
       <div>
-        <GlobalStyle />
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "20px",
-          padding: "20px"
-        }}>
-          {this.state.images.map((image, index) => (
-            <ImageCard
-              key={index}
-              image={image}
-              onLike={() => this.toggleLike(index)}
-              onDelete={() => this.deleteImage(index)}
-            />
-          ))}
+        <input
+          type="text"
+          placeholder="Suchen..."
+          value={this.state.searchQuery}
+          onChange={this.handleSearch}
+          style={{
+            width: "100%",
+            padding: "10px",
+            margin: "20px 0",
+            fontSize: "16px",
+            borderRadius: "5px",
+            border: "1px solid #ccc",
+          }}
+        />
+        <div>
+          <GlobalStyle />
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+              gap: "20px",
+              padding: "20px",
+            }}
+          >
+            {filteredImages.map((image, index) => (
+              <ImageCard
+                key={index}
+                image={image}
+                onLike={() => this.toggleLike(index)}
+                onDelete={() => this.deleteImage(index)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     )
