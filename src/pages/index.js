@@ -1,11 +1,15 @@
+// Standart Lib importieren
 import React, { Component } from "react"
+// Eigene Component importiert 
 import ImageCard from "../components/ImageCard"
+// Design CSS
+import GlobalStyle from "../styles/global"
+// Images importieren
 import happy from "../images/happy.jpg"
 import knightCat from "../images/KnightCat.jpg"
 import low_fi from "../images/low-fi.jpg"
 import misshif from "../images/misshif.jpg"
 import sailor from "../images/sailor.jpg"
-import GlobalStyle from "../styles/global"
 import evil from "../images/evil.jpg"
 import lassy from "../images/lassy.jpg"
 import ninja from "../images/ninja.jpg"
@@ -31,6 +35,8 @@ export default class Index extends Component {
     }
   }
 
+  //Funktionen
+
   toggleLike = (index) => {
     const updatedImages = [...this.state.images]
     updatedImages[index].liked = !updatedImages[index].liked
@@ -41,7 +47,7 @@ export default class Index extends Component {
     const updatedImages = this.state.images.filter((_, i) => i !== index)
     this.setState({ images: updatedImages })
   }
-
+  // rendern/ausgeben der WebSite/Html_Code
   render() {
     return (
       <div>
