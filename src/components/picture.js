@@ -1,37 +1,20 @@
-import React, { Component } from "react"
+import React from "react"
 
-class Picture extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      like: false, // Initialzustand
-    }
-  }
-
-  toggleLike = () => {
-    // Den Zustand umkehren (true <-> false)
-    this.setState((prevState) => ({
-      like: !prevState.like,
-    }))
-  }
-
-  render() {
-    return (
-      <div className="picture">
-        <p>{this.props.desc}</p>
-        <img src={this.props.src} alt={this.props.alt} />
-        {/* Dynamisches Styling je nach Zustand */}
-        <button
-          onClick={this.toggleLike}
-          style={{
-            backgroundColor: this.state.like ? "green" : "white",
-          }}
-        >
-          ❤️
-        </button>
-      </div>
-    )
-  }
+const Picture = (props) => {
+  return (
+    <div className="picture">
+      <p>{props.desc}</p>
+      <img src={props.src} alt={props.alt} />
+      <button
+        onClick={props.toggleLike} // Aufruf der Funktion, die den Like-Status ändert
+        style={{
+          backgroundColor: props.like ? "green" : "white", // Dynamische Farbe je nach Zustand
+        }}
+      >
+        ❤️
+      </button>
+    </div>
+  )
 }
 
 export default Picture
