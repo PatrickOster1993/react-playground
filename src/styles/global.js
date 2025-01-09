@@ -28,47 +28,67 @@ const GlobalStyle = createGlobalStyle`
     transform: scale(1.05); /* Vergrößert den Button leicht */
   }
 
-  /* Titelstile */
-  h1 {
-    font-size: 2.5rem; /* Große, prominente Schriftgröße */
-    color: #333; /* Dunkles Grau für eine gute Lesbarkeit */
-    margin: 1rem; /* Abstand zum nächsten Element */
+  /* Galerie-Element Styling */
+  .gallery-element {
+    display: inline-block;
+    margin: 15px; /* Abstand zwischen den Galerie-Elementen */
+    padding: 15px;
+    text-align: center;
+    border: 2px solid #ccc; /* Rahmen um jedes Bild */
+    border-radius: 10px; /* Abgerundete Ecken für jedes Galerie-Element */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+    background-color: #fff; /* Weißer Hintergrund */
+    transition: transform 0.3s ease; /* Weiche Übergangsanimation */
   }
 
-  h2 {
-    font-size: 2rem;
-    color: #444;
-    margin: 0.75rem;
+  /* Hover-Effekt für Galerie-Elemente */
+  .gallery-element:hover {
+    transform: scale(1.05); /* Vergrößert das Element leicht */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stärkerer Schatten beim Hover */
   }
 
-  h3 {
-    font-size: 1.5rem;
-    color: #555;
-    margin: 0.5rem;
+  /* Picture Styling */
+  .picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Zentriert den Inhalt horizontal */
+    padding: 10px;
+    margin: 10px;
+    background-color: #f9f9f9; /* Heller Hintergrund */
+    border-radius: 8px; /* Abgerundete Ecken für jedes Bild */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+    width: 200px; /* Setzt eine feste Breite für alle Bilder */
+    height: 250px; /* Setzt eine feste Höhe für die Bilder */
+    overflow: hidden; /* Verhindert, dass das Bild den Container überlappt */
   }
 
-  /* Standardstil für Absätze */
-  p {
+  .picture img {
+    width: 100%;
+    height: auto; /* Bild skaliert proportional zur Breite */
+    max-height: 150px; /* Maximalhöhe für die Bilder */
+    object-fit: cover; /* Verhindert, dass das Bild verzerrt wird */
+    border-radius: 8px; /* Abgerundete Ecken für das Bild */
+  }
+
+  /* Beschreibung Styling */
+  .picture p {
     font-size: 1rem;
-    color: #666;
-    margin: 1rem; /* Abstand zwischen Absätzen */
+    color: #333;
+    margin-top: 10px; /* Abstand zwischen Bild und Text */
+    font-weight: 500;
   }
 
-  /* Standardstil für Eingabefelder */
-  input {
-    border: 1px solid #ccc;
-    border-radius: 4px; /* Leicht abgerundete Ecken */
-    padding: 8px 12px;
-    font-size: 1rem;
-    margin: 1rem;
-    width: 100%; /* Eingabefelder passen sich der Breite ihres Containers an */
+  /* Stil für Like-Button */
+  .picture button {
+    margin-top: auto; /* Stellt sicher, dass der Button am unteren Ende des Containers bleibt */
+    background-color: white;
+    border: 2px solid #ccc;
+    color: #333;
+    transition: background-color 0.3s ease;
   }
 
-  /* Fokusstil für Eingabefelder */
-  input:focus {
-    border-color: green; /* Grüner Rand beim Fokus */
-    outline: none; /* Entfernt die Standardumrandung */
-    box-shadow: 0 0 5px rgba(0, 128, 0, 0.5); /* Fügt einen leichten Schatten hinzu */
+  .picture button:hover {
+    background-color: #f0f0f0;
   }
 `
 export default GlobalStyle

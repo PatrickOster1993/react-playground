@@ -17,7 +17,7 @@ class Picture extends Component {
 
   render() {
     return (
-      <div>
+      <div className="picture">
         <p>{this.props.desc}</p>
         <img src={this.props.src} alt={this.props.alt} />
         {/* Dynamisches Styling je nach Zustand */}

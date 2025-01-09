@@ -17,7 +17,7 @@ class Gallery extends Component {
 
   render() {
     return this.state.pictures.map((image, index) => (
-      <div key={index}>
+      <div key={index} className="gallery-element">
         <button onClick={() => this.deletePicture(index)}>🗑️</button>
         <Picture src={image.src} alt={image.alt} desc={image.desc} />
       </div>
