@@ -1,3 +1,4 @@
+// src/components/SearchFunction
 import React, { useState } from "react"
 
 const SearchFunction = ({ images, onFilter }) => {

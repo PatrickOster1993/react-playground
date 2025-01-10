@@ -20,22 +20,22 @@ import witch from "../images/witch.jpg"
 
 export default class Index extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       images: [
-        { src: happy, desc: "Happy", liked: false },
-        { src: knightCat, desc: "KnightCat", liked: false },
-        { src: low_fi, desc: "Low-fi", liked: false },
-        { src: misshif, desc: "Misshif", liked: false },
-        { src: sailor, desc: "Sailor", liked: false },
-        { src: evil, desc: "Evil", liked: false },
-        { src: lassy, desc: "Lassy", liked: false },
-        { src: ninja, desc: "Ninja", liked: false },
-        { src: robot, desc: "Robot", liked: false },
-        { src: witch, desc: "Witch", liked: false },
+        { src: happy, desc: "Happy", liked: false, disliked: false },
+        { src: knightCat, desc: "KnightCat", liked: false, disliked: false },
+        { src: low_fi, desc: "Low-fi", liked: false, disliked: false },
+        { src: misshif, desc: "Misshif", liked: false, disliked: false },
+        { src: sailor, desc: "Sailor", liked: false, disliked: false },
+        { src: evil, desc: "Evil", liked: false, disliked: false },
+        { src: lassy, desc: "Lassy", liked: false, disliked: false },
+        { src: ninja, desc: "Ninja", liked: false, disliked: false },
+        { src: robot, desc: "Robot", liked: false, disliked: false },
+        { src: witch, desc: "Witch", liked: false, disliked: false },
       ],
-      filteredImages: [], // Neu: Zustandsvariable für gefilterte Bilder
-    }
+      filteredImages: [],
+    };
   }
 
   componentDidMount() {
@@ -47,15 +47,43 @@ export default class Index extends Component {
     this.setState({ filteredImages })
   }
 
-  toggleLike = (index) => {
+  /*toggleLike = (index) => {
     const updatedImages = [...this.state.images]
     const globalIndex = this.state.images.findIndex(
       (img) => img.desc === this.state.filteredImages[index].desc
     )
     updatedImages[globalIndex].liked = !updatedImages[globalIndex].liked
     this.setState({ images: updatedImages })
-  }
+  }*/
+  toggleLike = (index) => {
+    const updatedImages = [...this.state.images];
+    const globalIndex = this.state.images.findIndex(
+      (img) => img.desc === this.state.filteredImages[index].desc
+    );
   
+    // Wenn Like aktiv ist, deaktivieren, ansonsten aktivieren und Dislike zurücksetzen
+    updatedImages[globalIndex].liked = !updatedImages[globalIndex].liked;
+    if (updatedImages[globalIndex].liked) {
+      updatedImages[globalIndex].disliked = false;
+    }
+  
+    this.setState({ images: updatedImages });
+  };
+
+  toggleDislike = (index) => {
+    const updatedImages = [...this.state.images];
+    const globalIndex = this.state.images.findIndex(
+      (img) => img.desc === this.state.filteredImages[index].desc
+    );
+  
+    // Wenn Dislike aktiv ist, deaktivieren, ansonsten aktivieren und Like zurücksetzen
+    updatedImages[globalIndex].disliked = !updatedImages[globalIndex].disliked;
+    if (updatedImages[globalIndex].disliked) {
+      updatedImages[globalIndex].liked = false;
+    }
+  
+    this.setState({ images: updatedImages });
+  };
   deleteImage = (index) => {
     const toastId = toast(
       <div>
@@ -127,12 +155,13 @@ export default class Index extends Component {
               gap: "20px",
               padding: "20px",
             }}
-          >
+            >
             {this.state.filteredImages.map((image, index) => (
               <ImageCard
                 key={index}
                 image={image}
                 onLike={() => this.toggleLike(index)}
+                onDislike={() => this.toggleDislike(index)}
                 onDelete={() => this.deleteImage(index)}
               />
             ))}
