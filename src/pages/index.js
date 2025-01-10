@@ -17,16 +17,16 @@ import rehgips1 from "../images/rehgips1.jpg"
 import Gallery from "../components/gallery"
 
 const pictures = [
-  { src: colanase, alt: "Colanase" },
-  { src: kinder, alt: "Kinder" },
-  { src: bordercolour, alt: "Bordercolour" },
-  { src: cgrid, alt: "Cgrid" },
-  { src: computersagtnein, alt: "Computersagtnein" },
-  { src: kackklammern, alt: "kackklammern" },
-  { src: ninspiel, alt: "ninspiel" },
-  { src: ohno, alt: "ohno" },
-  { src: rasPi, alt: "rasPi" },
-  { src: rehgips1, alt: "rehgips1" }
+  { src: colanase, alt: "Colanase", desc: "1"},
+  { src: kinder, alt: "Kinder", desc: "2" },
+  { src: bordercolour, alt: "Bordercolour", desc: "3" },
+  { src: cgrid, alt: "Cgrid", desc: "4" },
+  { src: computersagtnein, alt: "Computersagtnein", desc: "5" },
+  { src: kackklammern, alt: "kackklammern", desc: "6" },
+  { src: ninspiel, alt: "ninspiel", desc: "7" },
+  { src: ohno, alt: "ohno", desc: "8" },
+  { src: rasPi, alt: "rasPi", desc: "9" },
+  { src: rehgips1, alt: "rehgips1", desc: "23" }
 ]
 
 export default class Index extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Picture from "./picture"
-
+ 
 class Gallery extends Component {
   constructor(props) {
     super(props)
@@ -9,7 +9,7 @@ class Gallery extends Component {
       searchQuery: "",
     }
   }
-
+ 
   deletePicture = (indexToRemove) => {
     // Bestätigungsabfrage vor dem Löschen
     const userConfirmed = window.confirm(
@@ -21,22 +21,22 @@ class Gallery extends Component {
       this.setState({ pictures }) // State aktualisieren
     }
   }
-
+ 
   toggleLike = (index) => {
     const pictures = [...this.state.pictures]
     pictures[index].like = !pictures[index].like // Zustand für das geklickte Bild umkehren
     this.setState({ pictures }) // State aktualisieren
   }
-
+ 
   handleSearch = (event) => {
     this.setState({ searchQuery: event.target.value })
   }
-
+ 
   render() {
     const filteredPictures = this.state.pictures.filter((picture) =>
       picture.desc.toLowerCase().includes(this.state.searchQuery.toLowerCase())
     )
-
+ 
     return (
       <div>
         <input
@@ -45,7 +45,7 @@ class Gallery extends Component {
           value={this.state.searchQuery}
           onChange={this.handleSearch}
         />
-
+ 
         <div className="gallery">
           {filteredPictures.map((image, index) => (
             <div key={index} className="gallery-element">
@@ -64,5 +64,5 @@ class Gallery extends Component {
     )
   }
 }
-
+ 
 export default Gallery
